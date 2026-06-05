@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Шаблон для рекламы на терминалах</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Header"></header>
+
+    <main class="workspace">
+      <section class="stage" aria-label="Превью">
+        <div class="stage-shell">
+          <div class="stage-header">
+            <div class="format-toggle" role="group" aria-label="Формат макета">
+              <button type="button" class="format-btn is-active" data-format="P10">P10</button>
+              <button type="button" class="format-btn" data-format="P12">P12</button>
+            </div>
+          </div>
+          <div class="stage-center">
+            <div id="previewFrame" class="screen-wrap preview-frame preview-frame--p10">
+              <canvas id="preview" width="720" height="1600" class="preview-canvas"></canvas>
+              <div id="sceneUi" class="scene-ui">
+                <div class="scene-ui-viewport">
+                <div class="scene-ui-inner">
+                  <div class="block appear appear--from-top media" id="sceneMedia" hidden>
+                    <img
+                      class="hero-img"
+                      id="sceneHeroImg"
+                      alt=""
+                      decoding="async"
+                      loading="eager"
+                    />
+                    <video
+                      class="hero-video"
+                      id="sceneHeroVideo"
+                      muted
+                      playsinline
+                      preload="auto"
+                      hidden
+                    ></video>
+                  </div>
+                  <div class="qr-bundle" id="sceneQrBundle" hidden>
+                    <div class="qr-bundle__content" id="sceneQrBundleContent">
+                      <div class="block media media--qr" id="sceneMediaQr">
+                        <img
+                          class="hero-img"
+                          id="sceneHeroImgQr"
+                          alt=""
+                          decoding="async"
+                          loading="eager"
+                        />
+                        <video
+                          class="hero-video"
+                          id="sceneHeroVideoQr"
+                          muted
+                          playsinline
+                          preload="auto"
+                          hidden
+                        ></video>
+                      </div>
+                      <div class="qr-group">
+                        <div class="qr-box" id="sceneQrBox" aria-hidden="true"></div>
+                        <img
+                          class="qr"
+                          id="sceneQrImg"
+                          alt=""
+                          width="180"
+                          height="180"
+                          decoding="async"
+                          loading="eager"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-rect appear" id="sceneBgRect" aria-hidden="true"></div>
+                  <div class="bg-rect bg-rect--h2 appear" id="sceneBgRect2" aria-hidden="true"></div>
+                  <header class="block title-block">
+                    <h1 class="title" id="sceneTitle"></h1>
+                  </header>
+                  <footer class="block description-block">
+                    <p class="description" id="sceneDescription"></p>
+                  </footer>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="sr-only" id="previewSize">720 × 1600</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="controls" aria-label="Настройки">
+        <section class="control-section control-section--rules">
+          <a
+            class="rules-link"
+            href="./assets/Скринсейверы_гайд_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Гайд скринсейверов</span>
+            <img src="./icon/16/doc.svg" alt="" aria-hidden="true" />
+          </a>
+        </section>
+
+        <section class="control-section control-section--title-input">
+          <label class="field" for="h1">
+            <span class="field-label">Заголовок 1</span>
+          </label>
+          <div class="input-stack">
+            <input type="text" id="h1" maxlength="56" autocomplete="off" placeholder="Область текстового контента" />
+            <small class="counter" data-for="h1">0 / 56</small>
+          </div>
+        </section>
+
+        <section class="control-section control-section--title-input is-collapsed" id="h2Section">
+          <div class="row-title">
+            <span class="field-label">Заголовок 2</span>
+            <label class="icon-btn" for="toggleH2" aria-label="Показать или скрыть заголовок 2">
+              <img id="toggleH2Icon" src="./icon/16/pluse.svg" alt="" aria-hidden="true" />
+            </label>
+          </div>
+          <input type="checkbox" id="toggleH2" class="visually-hidden" />
+          <div class="input-stack" id="h2InputStack" hidden>
+            <input type="text" id="h2" maxlength="56" autocomplete="off" placeholder="Область текстового контента" />
+            <small class="counter" data-for="h2">0 / 56</small>
+          </div>
+        </section>
+
+        <section class="control-section control-section--no-divider">
+          <label class="field" for="disc">
+            <span class="field-label">Дисклеймер</span>
+          </label>
+          <div class="input-stack">
+            <textarea id="disc" maxlength="240" rows="4"></textarea>
+            <small class="counter" data-for="disc">0 / 240</small>
+          </div>
+          <input type="checkbox" id="toggleDisc" class="visually-hidden" checked />
+        </section>
+
+        <section class="control-section">
+          <div class="media-row">
+            <div class="media-switch" role="group" aria-label="Тип контента">
+              <button type="button" class="media-switch-btn is-active" data-media="image">
+                <img src="./icon/16/image.svg" alt="" aria-hidden="true" />
+              </button>
+              <button type="button" class="media-switch-btn" data-media="video">
+                <img src="./icon/16/video.svg" alt="" aria-hidden="true" />
+              </button>
+            </div>
+            <label class="qr-toggle" for="toggleQr">
+              <span>QR-код</span>
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+          </div>
+          <input type="checkbox" id="toggleQr" class="visually-hidden" />
+
+          <div class="cards-grid">
+            <label class="upload-card" id="cardImg1" for="img1">
+              <span class="card-kicker">P10</span>
+              <span class="card-image-wrap">
+                <img class="card-icon" src="./icon/16/image.svg" alt="" aria-hidden="true" />
+                <span class="card-delete" id="delImg1" role="button" aria-label="Удалить файл 1">
+                  <img src="./icon/16/cross.svg" alt="" aria-hidden="true" />
+                </span>
+              </span>
+              <div class="card-file">
+                <span class="card-file-thumb"><img src="./icon/16/file.svg" alt="" aria-hidden="true" /></span>
+                <span class="card-file-text">
+                  <span class="card-file-name"></span>
+                  <span class="card-file-ext">MP4</span>
+                </span>
+              </div>
+              <span class="card-type">PNG</span>
+              <span class="chip" id="chipImg1">max 552 × 497</span>
+            </label>
+            <label class="upload-card" id="cardImg2" for="img2">
+              <span class="card-kicker">P12</span>
+              <span class="card-image-wrap">
+                <img class="card-icon" src="./icon/16/image.svg" alt="" aria-hidden="true" />
+                <span class="card-delete" id="delImg2" role="button" aria-label="Удалить файл 2">
+                  <img src="./icon/16/cross.svg" alt="" aria-hidden="true" />
+                </span>
+              </span>
+              <div class="card-file">
+                <span class="card-file-thumb"><img src="./icon/16/file.svg" alt="" aria-hidden="true" /></span>
+                <span class="card-file-text">
+                  <span class="card-file-name"></span>
+                  <span class="card-file-ext">MP4</span>
+                </span>
+              </div>
+              <span class="card-type">PNG</span>
+              <span class="chip" id="chipImg2">max 580 × 270</span>
+            </label>
+            <label class="upload-card upload-card--qr is-hidden" id="cardQr">
+              <span class="card-kicker">P10, P12</span>
+              <span class="card-image-wrap">
+                <img class="card-icon" src="./icon/16/qr.svg" alt="" aria-hidden="true" />
+                <span class="card-delete" id="delQr" role="button" aria-label="Удалить QR">
+                  <img src="./icon/16/cross.svg" alt="" aria-hidden="true" />
+                </span>
+              </span>
+              <span class="card-type">SVG</span>
+            </label>
+          </div>
+
+          <input type="file" id="img1" accept="image/jpeg,image/png" class="visually-hidden" />
+          <input type="file" id="img2" accept="image/jpeg,image/png" class="visually-hidden" />
+          <input type="file" id="qrFile" accept="image/svg+xml" class="visually-hidden" />
+          <p class="img-error" id="err1" hidden></p>
+          <p class="img-error" id="err2" hidden></p>
+          <p class="img-error" id="errQr" hidden></p>
+        </section>
+
+        <section class="control-section control-section--actions">
+          <button type="button" id="replayAnimationBtn" class="play-animation-btn">
+            Проиграть анимацию
+          </button>
+          <div class="actions-row">
+            <button type="button" id="exportBtn" class="export-btn export-btn--ghost">Скачать P10 <span class="chip chip--light">MP4</span></button>
+            <button type="button" class="export-btn" id="exportBtnSecondary">Скачать P12 <span class="chip chip--light">MP4</span></button>
+          </div>
+          <p class="export-note" id="exportNote"></p>
+          <p class="sr-only">Длительность видео: <strong id="durationValue">6</strong> с</p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <div id="titleMeasurer" class="title-measurer" aria-hidden="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>

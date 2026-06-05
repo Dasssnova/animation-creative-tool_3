@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Tool UI Kit</title>
+  <link rel="stylesheet" href="design-system.css" />
+  <style>
+    body { margin: 0; background: #0f1115; color: #fff; font-family: var(--ds-font-family); }
+    .wrap { max-width: 1320px; margin: 0 auto; padding: 28px 20px 56px; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    p.lead { margin: 0 0 24px; color: rgba(255,255,255,0.72); }
+    .panel { background: #17181c; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; }
+    .panel h2 { margin: 0 0 14px; font-size: 12px; text-transform: uppercase; color: rgba(255,255,255,0.32); letter-spacing: -0.2px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); align-items: start; }
+    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .stack { display: grid; gap: 12px; justify-items: start; }
+    .icon-grid { display: grid; grid-template-columns: repeat(8, minmax(0,1fr)); gap: 8px; }
+    .icon-cell { display: grid; place-items: center; background: #222; border-radius: 10px; height: 44px; color: #9a9a9a; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Creative Tool UI Kit</h1>
+    <p class="lead">Локальные компоненты и состояния из Figma node 82:288.</p>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>switch-tab (P10/P12)</h2>
+        <div class="stack">
+          <div class="ds-switch-tab">
+            <div class="ds-switch-tab__item is-active">P10</div>
+            <div class="ds-switch-tab__item">P12</div>
+          </div>
+          <div class="ds-switch-tab">
+            <div class="ds-switch-tab__item">P10</div>
+            <div class="ds-switch-tab__item is-active">P12</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>switch On/Off</h2>
+        <div class="row">
+          <span class="ds-toggle is-on"></span>
+          <span class="ds-toggle is-on is-hover"></span>
+          <span class="ds-toggle"></span>
+          <span class="ds-toggle is-hover"></span>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>switch image/video</h2>
+        <div class="stack">
+          <div class="ds-media-switch">
+            <span class="ds-media-switch__item is-active"><img class="ds-icon-img" src="./icon/16/image.svg" alt="image" /></span>
+            <span class="ds-media-switch__item"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></span>
+          </div>
+          <div class="ds-media-switch">
+            <span class="ds-media-switch__item"><img class="ds-icon-img" src="./icon/16/image.svg" alt="image" /></span>
+            <span class="ds-media-switch__item is-active"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>button switch states</h2>
+        <div class="row">
+          <span class="ds-btn-switch"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></span>
+          <span class="ds-btn-switch is-hover"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></span>
+          <span class="ds-btn-switch is-active"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></span>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>button icon states</h2>
+        <div class="row">
+          <span class="ds-btn-icon"><img class="ds-icon-img" src="./icon/16/play.svg" alt="play" /></span>
+          <span class="ds-btn-icon is-hover"><img class="ds-icon-img" src="./icon/16/play.svg" alt="play" /></span>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>button secondary states</h2>
+        <div class="stack">
+          <div class="ds-btn-secondary">Правила написания текста <img class="ds-icon-img" src="./icon/16/doc.svg" alt="doc" /></div>
+          <div class="ds-btn-secondary is-hover">Правила написания текста <img class="ds-icon-img" src="./icon/16/doc.svg" alt="doc" /></div>
+        </div>
+      </article>
+
+      <article class="panel" style="grid-column: 1 / -1;">
+        <h2>input states</h2>
+        <div class="row" style="align-items:flex-start; gap:16px;">
+          <div class="ds-input-group"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" value="Область текстового контента, максимум пять строк" /><div class="ds-counter">56 / 56</div></div></div>
+          <div class="ds-input-group is-hover"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" value="Область текстового контента, максимум пять строк" /><div class="ds-counter">56 / 56</div></div></div>
+          <div class="ds-input-group is-active"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" value="Область текстового контента, максимум пять строк" /><div class="ds-counter">56 / 56</div></div></div>
+          <div class="ds-input-group"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" placeholder="Область текстового контента" /><div class="ds-counter">0 / 56</div></div></div>
+          <div class="ds-input-group is-hover"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" placeholder="Область текстового контента" /><div class="ds-counter">0 / 56</div></div></div>
+          <div class="ds-input-group is-active"><div class="ds-text-label">Заголовок 1</div><div class="ds-input-wrap"><input class="ds-input" placeholder="Область текстового контента, максимум пять строк" /><div class="ds-counter">0 / 56</div></div></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>Primary button</h2>
+        <button class="ds-btn" style="width:100%; max-width:360px;"><span>скачать MP4</span><span class="ds-btn__tags"><span class="ds-chip ds-chip--small-white">P10</span><span class="ds-chip ds-chip--small-white">P12</span></span></button>
+        <div style="height:10px"></div>
+        <button class="ds-btn is-hover" style="width:100%; max-width:360px;"><span>скачать MP4</span><span class="ds-btn__tags"><span class="ds-chip ds-chip--small-white">P10</span><span class="ds-chip ds-chip--small-white">P12</span></span></button>
+      </article>
+
+      <article class="panel">
+        <h2>tag variants</h2>
+        <div class="row"><span class="ds-chip ds-chip--big-gray">720 x 1600</span><span class="ds-chip ds-chip--small-gray">720 x 1600</span><span class="ds-chip ds-chip--small-blue">720 x 1600</span><span class="ds-chip ds-chip--small-white">720 x 1600</span></div>
+      </article>
+
+      <article class="panel">
+        <h2>button-swtich-tab</h2>
+        <div class="row">
+          <span class="ds-button-switch-tab">P10</span>
+          <span class="ds-button-switch-tab is-hover">P10</span>
+          <span class="ds-button-switch-tab is-default">P10</span>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>card states</h2>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(175px,1fr));gap:8px;align-items:start;">
+          <div class="ds-card ds-card--default" style="min-width:175px;"><div class="ds-text-label" style="position:absolute;left:7px;top:7px;">P10</div><img class="ds-icon-img" src="./icon/16/image.svg" alt="image" /><div style="display:grid;gap:8px;justify-items:center;width:100%;"><div class="ds-caption">PNG</div><span class="ds-chip ds-chip--small-gray">max 537 x 312</span></div></div>
+          <div class="ds-card ds-card--default is-hover" style="min-width:175px;"><div class="ds-text-label" style="position:absolute;left:7px;top:7px;">P10</div><img class="ds-icon-img" src="./icon/16/image.svg" alt="image" /><div style="display:grid;gap:8px;justify-items:center;width:100%;"><div class="ds-caption">PNG</div><span class="ds-chip ds-chip--small-gray">max 537 x 312</span></div></div>
+          <div class="ds-card ds-card--attach" style="min-width:175px;height:102px;"><div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="ds-text-label">P10</div><span class="ds-chip ds-chip--small-gray">720 x 1600</span></div><div class="ds-attach ds-attach--square"><span class="ds-attach__delete"><img src="./icon/16/cross.svg" alt="delete" /></span></div></div>
+          <div class="ds-card ds-card--attach is-hover" style="min-width:175px;height:102px;"><div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="ds-text-label">P10</div><span class="ds-chip ds-chip--small-gray">720 x 1600</span></div><div class="ds-attach ds-attach--square"><span class="ds-attach__delete is-hover"><img src="./icon/16/cross.svg" alt="delete" /></span></div></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>player states</h2>
+        <div class="row">
+          <div class="ds-player"><img class="ds-icon-img" src="./icon/16/play.svg" alt="play" /></div>
+          <div class="ds-player is-hover"><img class="ds-icon-img" src="./icon/16/play.svg" alt="play" /></div>
+          <div class="ds-player"><img class="ds-icon-img" src="./icon/16/pause.svg" alt="pause" /></div>
+          <div class="ds-player is-hover"><img class="ds-icon-img" src="./icon/16/pause.svg" alt="pause" /></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>delete image states</h2>
+        <div class="row">
+          <span class="ds-attach__delete" style="position: static;"><img src="./icon/16/cross.svg" alt="delete default" /></span>
+          <span class="ds-attach__delete is-hover" style="position: static;"><img src="./icon/16/cross.svg" alt="delete hover" /></span>
+        </div>
+      </article>
+
+      <article class="panel" style="grid-column:1 / -1;">
+        <h2>icons set (real assets)</h2>
+        <div class="icon-grid">
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/video.svg" alt="video" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/image.svg" alt="image" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/info.svg" alt="info" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/pluse.svg" alt="plus" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/minus.svg" alt="minus" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/play.svg" alt="play" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/pause.svg" alt="pause" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/doc.svg" alt="doc" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/qr.svg" alt="qr" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/flip.svg" alt="flip" /></div>
+          <div class="icon-cell"><img class="ds-icon-img" src="./icon/16/file.svg" alt="file" /></div>
+          <div class="icon-cell"><img class="ds-icon-img ds-icon-img--24" src="./icon/24/p10.svg" alt="p10-24" /></div>
+          <div class="icon-cell"><img class="ds-icon-img ds-icon-img--24" src="./icon/24/p12.svg" alt="p12-24" /></div>
+          <div class="icon-cell"><img class="ds-icon-img ds-icon-img--28" src="./icon/28/p10.svg" alt="p10-28" /></div>
+          <div class="icon-cell"><img class="ds-icon-img ds-icon-img--28" src="./icon/28/p12.svg" alt="p12-28" /></div>
+          <div class="icon-cell"><img class="ds-icon-img ds-icon-img--28" src="./icon/28/qr.svg" alt="qr-28" /></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
